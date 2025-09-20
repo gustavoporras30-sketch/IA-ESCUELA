@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explorando Blockchain | por Gustavo Porras</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Orbitron:wght@500;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto Mono', monospace;
+            background-color: #0a0a1a;
+            color: #e0e0e0;
+        }
+
+        .font-orbitron {
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        .glass-card {
+            background: rgba(20, 20, 40, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(0, 191, 255, 0.2);
+            box-shadow: 0 0 30px rgba(0, 191, 255, 0.1);
+        }
+        
+        .glow-text {
+            text-shadow: 0 0 8px rgba(0, 191, 255, 0.7), 0 0 10px rgba(0, 191, 255, 0.5);
+        }
+
+        .glow-button {
+             box-shadow: 0 0 10px rgba(45, 212, 191, 0.5), 0 0 20px rgba(45, 212, 191, 0.3);
+        }
+
+        .neon-border {
+             border: 2px solid #08d9d6;
+             box-shadow: 0 0 15px #08d9d6, inset 0 0 5px #08d9d6;
+        }
+        
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0a1a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #08d9d6;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00ffff;
+        }
+
+    </style>
+</head>
+
+<body class="overflow-x-hidden">
+
+    <!-- Header & Navigation -->
+    <header class="bg-black/50 backdrop-blur-md sticky top-0 z-50 border-b border-cyan-500/20">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="font-orbitron text-xl md:text-2xl text-cyan-400 glow-text">BLOCKCHAIN</h1>
+            <div class="hidden md:flex space-x-8 text-sm">
+                <a href="#intro" class="hover:text-cyan-400 transition-colors duration-300">¿Qué es?</a>
+                <a href="#usos" class="hover:text-cyan-400 transition-colors duration-300">Usos Actuales</a>
+                <a href="#futuro" class="hover:text-cyan-400 transition-colors duration-300">Futuro</a>
+                <a href="#quiz" class="hover:text-cyan-400 transition-colors duration-300">Cuestionario</a>
+                <a href="#acceso" class="hover:text-cyan-400 transition-colors duration-300">Acceso</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto px-6 py-12">
+
+        <!-- Section 1: ¿Qué es Blockchain? -->
+        <section id="intro" class="min-h-screen flex items-center justify-center fade-in-section">
+            <div class="text-center max-w-4xl">
+                <h2 class="font-orbitron text-4xl md:text-6xl mb-6 text-cyan-300 glow-text">¿Qué es Blockchain?</h2>
+                <p class="text-lg md:text-xl mb-8 leading-relaxed">
+                    Imagina un <span class="text-teal-300 font-bold">libro de contabilidad digital</span> que es imposible de falsificar. En lugar de estar en un solo lugar, está distribuido en miles de computadoras. Cada nueva transacción (un "bloque") se enlaza a la anterior, creando una <span class="text-teal-300 font-bold">cadena de bloques</span> segura y transparente. Esta es la esencia de la tecnología Blockchain.
+                </p>
+                <div class="flex flex-wrap justify-center gap-4 text-center mt-12">
+                    <div class="glass-card p-6 rounded-lg w-full md:w-1/4">
+                        <h3 class="font-bold text-cyan-400 text-xl mb-2">Inmutable</h3>
+                        <p class="text-sm">Una vez que un dato se registra, no se puede alterar.</p>
+                    </div>
+                    <div class="glass-card p-6 rounded-lg w-full md:w-1/4">
+                        <h3 class="font-bold text-cyan-400 text-xl mb-2">Descentralizado</h3>
+                        <p class="text-sm">No depende de un solo servidor o entidad central.</p>
+                    </div>
+                    <div class="glass-card p-6 rounded-lg w-full md:w-1/4">
+                        <h3 class="font-bold text-cyan-400 text-xl mb-2">Transparente</h3>
+                        <p class="text-sm">Todos los participantes pueden ver los registros (de forma anónima).</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Usos y Aplicaciones Actuales -->
+        <section id="usos" class="min-h-screen py-20 fade-in-section">
+            <h2 class="font-orbitron text-4xl md:text-5xl mb-12 text-center text-cyan-300 glow-text">Usos y Aplicaciones Actuales</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="glass-card p-8 rounded-xl hover:border-cyan-400 transition-all duration-300 transform hover:-translate-y-2">
+                    <h3 class="font-orbitron text-2xl mb-4 text-teal-300">Criptomonedas</h3>
+                    <p>Bitcoin y Ethereum son los ejemplos más famosos. Blockchain permite transacciones seguras y descentralizadas sin necesidad de un banco.</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="glass-card p-8 rounded-xl hover:border-cyan-400 transition-all duration-300 transform hover:-translate-y-2">
+                    <h3 class="font-orbitron text-2xl mb-4 text-teal-300">Contratos Inteligentes</h3>
+                    <p>Son programas que se ejecutan automáticamente cuando se cumplen ciertas condiciones. Automatizan acuerdos y eliminan intermediarios.</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="glass-card p-8 rounded-xl hover:border-cyan-400 transition-all duration-300 transform hover:-translate-y-2">
+                    <h3 class="font-orbitron text-2xl mb-4 text-teal-300">Cadena de Suministro</h3>
+                    <p>Permite rastrear productos desde su origen hasta el consumidor final, garantizando autenticidad y combatiendo la falsificación.</p>
+                </div>
+                 <!-- Card 4 -->
+                <div class="glass-card p-8 rounded-xl hover:border-cyan-400 transition-all duration-300 transform hover:-translate-y-2">
+                    <h3 class="font-orbitron text-2xl mb-4 text-teal-300">NFTs y Arte Digital</h3>
+                    <p>Los Tokens No Fungibles (NFTs) certifican la propiedad y autenticidad de activos digitales únicos, revolucionando el coleccionismo y el arte.</p>
+                </div>
+                 <!-- Card 5 -->
+                <div class="glass-card p-8 rounded-xl hover:border-cyan-400 transition-all duration-300 transform hover:-translate-y-2">
+                    <h3 class="font-orbitron text-2xl mb-4 text-teal-300">Gestión de Identidad</h3>
+                    <p>Creación de identidades digitales soberanas, donde el usuario tiene control total sobre sus datos personales y quién puede acceder a ellos.</p>
+                </div>
+                 <!-- Card 6 -->
+                <div class="glass-card p-8 rounded-xl hover:border-cyan-400 transition-all duration-300 transform hover:-translate-y-2">
+                    <h3 class="font-orbitron text-2xl mb-4 text-teal-300">Finanzas Descentralizadas (DeFi)</h3>
+                    <p>Recrea servicios financieros tradicionales (préstamos, inversiones) de forma abierta y descentralizada sobre la blockchain.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: ¿Cómo se podría utilizar en un futuro? -->
+        <section id="futuro" class="min-h-screen py-20 flex items-center fade-in-section">
+            <div class="w-full">
+                <h2 class="font-orbitron text-4xl md:text-5xl mb-12 text-center text-cyan-300 glow-text">El Futuro es Descentralizado</h2>
+                <div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-8 items-center">
+                    <div class="space-y-6">
+                        <div class="glass-card p-6 rounded-lg">
+                            <h3 class="font-bold text-xl text-teal-300">Votaciones Electrónicas Seguras</h3>
+                            <p class="text-sm">Sistemas de votación transparentes, auditables y resistentes a la manipulación, donde cada voto es un registro inmutable.</p>
+                        </div>
+                        <div class="glass-card p-6 rounded-lg">
+                            <h3 class="font-bold text-xl text-teal-300">Gestión de Propiedad Intelectual</h3>
+                            <p class="text-sm">Registro de patentes, derechos de autor y creaciones artísticas de forma automática, garantizando la autoría y facilitando las licencias.</p>
+                        </div>
+                        <div class="glass-card p-6 rounded-lg">
+                            <h3 class="font-bold text-xl text-teal-300">Historiales Clínicos Universales</h3>
+                            <p class="text-sm">Un registro médico único y seguro para cada persona, accesible por cualquier doctor autorizado por el paciente, en cualquier parte del mundo.</p>
+                        </div>
+                    </div>
+                    <div>
+                         <p class="text-lg text-center p-8 border-2 border-dashed border-cyan-500/50 rounded-xl">
+                            La tecnología Blockchain tiene el potencial de redefinir la confianza en el mundo digital. Podríamos ver desde <span class="text-teal-300">ciudades inteligentes</span> con gestión autónoma de recursos hasta <span class="text-teal-300">organizaciones autónomas descentralizadas (DAOs)</span> que operan sin una jerarquía tradicional.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Cuestionario -->
+        <section id="quiz" class="min-h-screen py-20 flex items-center fade-in-section">
+            <div class="w-full max-w-3xl mx-auto">
+                <h2 class="font-orbitron text-4xl md:text-5xl mb-12 text-center text-cyan-300 glow-text">Pon a Prueba tu Conocimiento</h2>
+                <div class="glass-card p-8 md:p-12 rounded-xl">
+                    <form id="quiz-form" class="space-y-8">
+                        <!-- Pregunta 1 -->
+                        <div>
+                            <p class="font-bold mb-3">1. ¿Cuál es la característica principal de un dato guardado en Blockchain?</p>
+                            <div class="space-y-2">
+                                <label class="flex items-center"><input type="radio" name="q1" value="a" class="mr-2 accent-cyan-400"> Es fácil de borrar.</label>
+                                <label class="flex items-center"><input type="radio" name="q1" value="b" class="mr-2 accent-cyan-400"> Es inmutable (no se puede cambiar).</label>
+                                <label class="flex items-center"><input type="radio" name="q1" value="c" class="mr-2 accent-cyan-400"> Solo lo puede ver una persona.</label>
+                            </div>
+                        </div>
+                        <!-- Pregunta 2 -->
+                        <div>
+                            <p class="font-bold mb-3">2. ¿Qué significa que Blockchain es "descentralizado"?</p>
+                            <div class="space-y-2">
+                                <label class="flex items-center"><input type="radio" name="q2" value="a" class="mr-2 accent-cyan-400"> Depende de un gran banco.</label>
+                                <label class="flex items-center"><input type="radio" name="q2" value="b" class="mr-2 accent-cyan-400"> La información se guarda en un único lugar.</label>
+                                <label class="flex items-center"><input type="radio" name="q2" value="c" class="mr-2 accent-cyan-400"> No está controlado por una sola entidad.</label>
+                            </div>
+                        </div>
+                         <!-- Pregunta 3 -->
+                        <div>
+                            <p class="font-bold mb-3">3. ¿Para qué se utilizan los "Contratos Inteligentes"?</p>
+                            <div class="space-y-2">
+                                <label class="flex items-center"><input type="radio" name="q3" value="a" class="mr-2 accent-cyan-400"> Para enviar correos electrónicos.</label>
+                                <label class="flex items-center"><input type="radio" name="q3" value="b" class="mr-2 accent-cyan-400"> Para automatizar acuerdos sin intermediarios.</label>
+                                <label class="flex items-center"><input type="radio" name="q3" value="c" class="mr-2 accent-cyan-400"> Para diseñar páginas web.</label>
+                            </div>
+                        </div>
+                         <!-- Pregunta 4 -->
+                        <div>
+                            <p class="font-bold mb-3">4. Bitcoin es un ejemplo de:</p>
+                            <div class="space-y-2">
+                                <label class="flex items-center"><input type="radio" name="q4" value="a" class="mr-2 accent-cyan-400"> Un contrato inteligente.</label>
+                                <label class="flex items-center"><input type="radio" name="q4" value="b" class="mr-2 accent-cyan-400"> Una criptomoneda.</label>
+                                <label class="flex items-center"><input type="radio" name="q4" value="c" class="mr-2 accent-cyan-400"> Un sistema de votación.</label>
+                            </div>
+                        </div>
+                         <!-- Pregunta 5 -->
+                        <div>
+                            <p class="font-bold mb-3">5. ¿Qué garantizan los NFTs en el mundo digital?</p>
+                            <div class="space-y-2">
+                                <label class="flex items-center"><input type="radio" name="q5" value="a" class="mr-2 accent-cyan-400"> Que un archivo digital sea gratis.</label>
+                                <label class="flex items-center"><input type="radio" name="q5" value="b" class="mr-2 accent-cyan-400"> La velocidad de internet.</label>
+                                <label class="flex items-center"><input type="radio" name="q5" value="c" class="mr-2 accent-cyan-400"> La propiedad y autenticidad de un activo.</label>
+                            </div>
+                        </div>
+                        <div class="text-center pt-4">
+                            <button type="submit" class="bg-cyan-500 hover:bg-cyan-400 text-gray-900 font-bold py-3 px-8 rounded-full transition-all duration-300 transform hover:scale-105 glow-button">
+                                Verificar Respuestas
+                            </button>
+                        </div>
+                    </form>
+                    <div id="quiz-results" class="mt-8 text-center text-2xl font-bold"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 5: Acceso y Publicación -->
+        <section id="acceso" class="py-20 text-center fade-in-section">
+            <h2 class="font-orbitron text-4xl md:text-5xl mb-12 text-center text-cyan-300 glow-text">Acceso y Publicación</h2>
+            <div class="flex flex-col-reverse md:flex-row items-center justify-center gap-12">
+                <div class="md:w-1/2 text-left glass-card p-8 rounded-lg">
+                    <h3 class="font-bold text-xl text-teal-300 mb-3">¡Hazlo Público!</h3>
+                    <p class="text-sm mb-4">
+                        Para que <strong>cualquier persona pueda acceder</strong> a esta presentación sin iniciar sesión, necesitas publicarla en un servicio de hosting web.
+                    </p>
+                    <p class="text-sm">
+                        Simplemente sube este archivo <code class="bg-gray-700 text-xs p-1 rounded">.html</code> a un servicio gratuito (como GitHub Pages, Netlify, etc.). Una vez publicado, obtendrás un enlace público que podrás compartir y usar para generar el código QR definitivo.
+                    </p>
+                    <p class="mt-8 text-sm text-gray-400">
+                        Esta presentación fue creada por: <br>
+                        <span class="text-xl font-orbitron text-white">Gustavo Porras</span>
+                    </p>
+                </div>
+                <div class="flex justify-center">
+                    <div class="p-4 bg-white rounded-lg neon-border">
+                         <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=Ejemplo:%20Publica%20este%20archivo%20y%20comparte%20la%20URL" alt="Código QR de Ejemplo">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // --- Lógica del Cuestionario ---
+            const quizForm = document.getElementById('quiz-form');
+            const resultsDiv = document.getElementById('quiz-results');
+            const correctAnswers = {
+                q1: 'b',
+                q2: 'c',
+                q3: 'b',
+                q4: 'b',
+                q5: 'c'
+            };
+
+            quizForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                let score = 0;
+                const userAnswers = new FormData(quizForm);
+
+                // Reset styles
+                quizForm.querySelectorAll('label').forEach(label => {
+                    label.classList.remove('text-green-400', 'text-red-400', 'font-bold');
+                });
+                
+                for (const [question, userAnswer] of userAnswers.entries()) {
+                    const label = quizForm.querySelector(`input[name="${question}"][value="${userAnswer}"]`).parentElement;
+                    if (userAnswer === correctAnswers[question]) {
+                        score++;
+                        label.classList.add('text-green-400', 'font-bold');
+                    } else {
+                        label.classList.add('text-red-400');
+                        // Highlight correct answer
+                        const correctLabel = quizForm.querySelector(`input[name="${question}"][value="${correctAnswers[question]}"]`).parentElement;
+                        correctLabel.classList.add('text-green-400', 'font-bold');
+                    }
+                }
+                
+                resultsDiv.textContent = `Tu puntuación: ${score} de 5`;
+                 if(score === 5) {
+                    resultsDiv.textContent += ' ¡Excelente! Dominas los conceptos.';
+                    resultsDiv.style.color = '#2dd4bf';
+                } else if (score >= 3) {
+                    resultsDiv.textContent += ' ¡Buen trabajo! Tienes una buena base.';
+                    resultsDiv.style.color = '#60a5fa';
+                } else {
+                    resultsDiv.textContent += ' ¡Sigue aprendiendo! Repasa los conceptos.';
+                    resultsDiv.style.color = '#f87171';
+                }
+            });
+            
+            // --- Lógica de Animación al Hacer Scroll ---
+            const sections = document.querySelectorAll('.fade-in-section');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+
+</body>
+
+</html>
+
